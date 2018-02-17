@@ -1,0 +1,51 @@
+page-login {
+
+  .login-content {
+    background: white;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .logo-row {
+      padding-top: 50px;
+      padding-bottom: 80px;
+    }
+
+    .login-box {
+      width: 100%;
+    }
+
+
+    ion-row {
+      align-items: center;
+      text-align: center;
+    }
+
+    ion-item {
+      font-size: 0.9em;
+      margin-bottom: 10px;
+      border: 1px solid black;
+      width: 100%;
+    }
+
+    .signup-col {
+      margin: 0px 16px 0px 16px;
+      padding-bottom: 20px;
+    }
+
+    .item-inner {
+      border-bottom-color: #ffffff !important;
+      box-shadow: none !important;
+    }
+    ion-list{
+      margin:0px;
+    }
+
+    .submit-btn {
+      background: #51CFB1;
+      border: 1px solid #ffffff;
+      width: 100%;
+    }
+  }
+
+}
