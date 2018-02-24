@@ -1,8 +1,8 @@
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {LoginData} from "../../model/loginData";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {ErrorObservable} from "rxjs/observable/ErrorObservable";
 
 /*
@@ -15,7 +15,7 @@ import {ErrorObservable} from "rxjs/observable/ErrorObservable";
 export class AuthService {
 
   private currentUser: LoginData;
-  private loginUrl = 'https://{server_name}/passwordvault/login';
+  private loginUrl = 'https://18.220.51.39/PasswordVault/api/auth/cyberark/logon';
 
   constructor(public http: HttpClient) {
   }
@@ -25,9 +25,13 @@ export class AuthService {
       return Observable.throw("Please insert credentials");
     } else {
       this.currentUser = loginUser;
-      return this.http.post(this.loginUrl, this.currentUser, null)
+      let headers = new HttpHeaders({
+        'Content-Type': 'application/json'
+      });
+      return this.http.post(this.loginUrl, this.currentUser,{headers: headers})
         .pipe(
-          catchError(this.handleError)
+          map(this.extractData),
+            catchError(this.handleError)
         );
     }
   }
@@ -38,6 +42,12 @@ export class AuthService {
 
   public logout() {
    // need to logout from PVWa VIA REST
+  }
+
+  private extractData(res: Response) {
+    let body = res.json();
+    debugger;
+    return body || {};
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

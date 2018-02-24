@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {NavController, AlertController, LoadingController, Loading, IonicPage} from 'ionic-angular';
 import {LoginData} from "../../model/loginData";
 import {AuthService} from "../../providers/login/authService";
 
@@ -9,12 +9,15 @@ import {AuthService} from "../../providers/login/authService";
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  @ViewChild('password') passwordInput: any;
   loading: Loading;
-  registerCredentials:LoginData ;
+  registerCredentials: LoginData;
+  isPasswordVisible: boolean;
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
-    this.registerCredentials = new LoginData('','');
+    this.registerCredentials = new LoginData('', '');
+    this.isPasswordVisible = false;
   }
 
   public createAccount() {
@@ -41,6 +44,15 @@ export class LoginPage {
       dismissOnPageChange: true
     });
     this.loading.present();
+  }
+
+  public iconClicked(showPass:boolean): void {
+    this.isPasswordVisible = showPass;
+    if(this.isPasswordVisible){
+      this.passwordInput.changeType('text');
+    } else {
+      this.passwordInput.changeType('password');
+    }
   }
 
   showError(text) {
