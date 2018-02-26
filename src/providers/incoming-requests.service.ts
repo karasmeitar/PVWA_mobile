@@ -1,6 +1,9 @@
 import {Injectable} from "@angular/core";
 import {HttpService} from "./http.service";
 import {SERVER_PATH} from "./constants";
+import {Observable} from "rxjs/Observable";
+import {IncomingRequestData} from "../model/IncomingRequestData";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class IncomingRequestsService {
@@ -11,8 +14,10 @@ export class IncomingRequestsService {
   constructor(private http: HttpService) {
   }
 
-  public getAll() {
-    return this.http.get(this.incomingRequestsURL);
+  public getAll(): Observable<IncomingRequestData[]> {
+    return this.http.get(this.incomingRequestsURL).pipe(map(res => {
+      return res['IncomingRequests'].map(item => <IncomingRequestData>{...item});
+    }));
   }
 
   public confirmRequest(id: string, reason: string) {
