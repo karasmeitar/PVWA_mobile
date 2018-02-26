@@ -7,11 +7,11 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
 
   @Input() public header: string;
-  @Input() public mode: 'threat' | 'sessions' | 'accounts' | 'requests';
+  @Input() public entityType: 'threat' | 'sessions' | 'accounts' | 'requests';
 
   constructor() {
     this.header = '';
-    this.mode = 'threat';
+    this.entityType = 'threat';
   }
 
 }
