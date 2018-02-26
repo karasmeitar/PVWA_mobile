@@ -1,9 +1,9 @@
-export class LoginData{
- password :string;
- userName: string;
+export class NavigationData {
+  name :string;
+  count: number;
 
- public constructor(userName: string,password:string){
-   this.password = password;
-   this.userName = userName;
- }
+  public constructor(name: string,count:number){
+    this.name = name;
+    this.count = count;
+  }
 }
