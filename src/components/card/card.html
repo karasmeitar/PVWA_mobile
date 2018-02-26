@@ -1,7 +1,9 @@
 <div class="cyb-card cyb-card--{{entityType}}">
   <ion-card>
     <ion-card-header>
-      <strong>{{header}}</strong>
+      <strong class="cyb-card__header">{{header}}</strong>
+      <ion-icon *ngIf="icon" class="{{icon}} cyb-card__icon cyb-card__icon--{{iconColor || 'blue'}}"></ion-icon>
+      <span *ngIf="iconText" class="cyb-card__icon-text cyb-card__icon-text--{{iconColor || 'blue'}}">{{iconText}}</span>
     </ion-card-header>
     <ion-card-content>
       <ng-content></ng-content>
