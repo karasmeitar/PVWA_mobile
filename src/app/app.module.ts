@@ -9,23 +9,22 @@ import {AuthService} from '../providers/login/authService';
 import {LoginPage} from "../pages/login/login";
 import {PvmMasterLayoutPage} from "../pages/pvm-master-layout/pvm-master-layout";
 import {HttpClientModule} from "@angular/common/http";
+import {LoginPageModule} from "../pages/login/login.module";
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage,
-    PvmMasterLayoutPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     LoginPage,
-    PvmMasterLayoutPage
   ],
   providers: [
     StatusBar,
