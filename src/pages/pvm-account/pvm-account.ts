@@ -21,7 +21,10 @@ export class PvmAccountPage {
     this.accountData = {
       header : 'Anna Hamilton',
       entityType: 'requests',
-      infoItems: [{title: 'ACCOUNT', content:'Administrator on 10.8.9.7'},{title: 'TIME FRAME', content:'12 Feb 12:00 - 12 Feb 18:00'}]
+      infoItems: [{title: 'ACCOUNT', content:'Administrator on 10.8.9.7'},{title: 'TIME FRAME', content:'12 Feb 12:00 - 12 Feb 18:00'}],
+      icon: 'cyb-icon-accounts',
+      iconText: 'single',
+      iconColor: 'red'
     }
   }
 
