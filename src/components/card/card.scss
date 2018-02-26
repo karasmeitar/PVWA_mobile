@@ -1,6 +1,9 @@
 
 
 .cyb-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   .card-ios, .card-md {
     position: relative;
     border-left-style: solid;

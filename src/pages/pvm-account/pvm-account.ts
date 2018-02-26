@@ -16,17 +16,25 @@ import {cardData} from "../../model/cardData";
   templateUrl: 'pvm-account.html',
 })
 export class PvmAccountPage {
-  private accountData: cardData;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.accountData = {
+  public accounts: Array<cardData> = [{
+    header : 'Anna Hamilton',
+    entityType: 'requests',
+    infoItems: [{title: 'ACCOUNT', content:'Administrator on 10.8.9.7'},{title: 'TIME FRAME', content:'12 Feb 12:00 - 12 Feb 18:00'}]
+  },
+    {
+      header : 'Anna Hamilton',
+      entityType: 'requests',
+      infoItems: [{title: 'ACCOUNT', content:'Administrator on 10.8.9.7'},{title: 'TIME FRAME', content:'12 Feb 12:00 - 12 Feb 18:00'}]
+    },
+    {
       header : 'Anna Hamilton',
       entityType: 'requests',
       infoItems: [{title: 'ACCOUNT', content:'Administrator on 10.8.9.7'},{title: 'TIME FRAME', content:'12 Feb 12:00 - 12 Feb 18:00'}]
     }
+  ];
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PvmAccountPage');
   }
 
 }

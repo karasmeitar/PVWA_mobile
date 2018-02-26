@@ -1,5 +1,5 @@
-<pvm-card header="{{cardData.header}}" entityType = "{{cardData.entityType}}">
-  <ng-template *ngFor="let cardInfo of cardData.infoItems">
-  <pvm-information-block title="{{cardInfo.title}}" content="{{cardInfo.content}}"></pvm-information-block>
-  </ng-template>
+<pvm-card header="{{applicationData.header}}" entityType = "{{applicationData.entityType}}">
+  <ng-container *ngFor="let cardInfo of applicationData.infoItems">
+  <pvm-information-block [title]="cardInfo.title" [content]="cardInfo.content"></pvm-information-block>
+  </ng-container>
 </pvm-card>

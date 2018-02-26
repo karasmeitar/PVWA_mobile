@@ -13,7 +13,7 @@ import {cardData} from "../../model/cardData";
 })
 export class ApplicationCardComponent {
 
- @Input() cardData: cardData;
+ @Input() applicationData: cardData;
 
   constructor() {
   }
