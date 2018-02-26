@@ -33,11 +33,11 @@ pvm-details {
           line-height: $line-height;
           -webkit-line-clamp: $lines-to-show;
           height: $multiline-height;
-          padding: 34pt;
+          /*padding: 0 15pt;*/
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-          white-space: initial;
+          white-space: nowrap;
         }
       }
     }
