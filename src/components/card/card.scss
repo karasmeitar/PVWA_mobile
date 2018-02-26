@@ -1,3 +1,43 @@
-card {
 
+$CC2: rgb(17, 182, 209);
+$CC4: rgb(27,158,145);
+$CS19: rgb(17, 156, 100);
+$CP1: rgb(49, 101, 189);
+
+.cyb-card {
+  .card-ios, .card-md {
+    position: relative;
+    border-left-style: solid;
+    border-left-width: 5px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &--threat {
+    .card-ios, .card-md {
+      border-color: $CC2;
+    }
+  }
+
+  &--sessions {
+    .card-ios, .card-md {
+      border-color: $CC4;
+    }
+  }
+
+  &--accounts {
+    .card-ios, .card-md {
+      border-color: $CS19;
+    }
+  }
+
+  &--requests {
+    .card-ios, .card-md {
+      border-color: $CP1;
+    }
+  }
 }

@@ -1,4 +1,10 @@
-<!-- Generated template for the CardComponent component -->
-<div>
-  {{text}}
+<div class="cyb-card cyb-card--{{mode}}">
+  <ion-card>
+    <ion-card-header>
+      <strong>{{header}}</strong>
+    </ion-card-header>
+    <ion-card-content>
+      <ng-content></ng-content>
+    </ion-card-content>
+  </ion-card>
 </div>

@@ -16,7 +16,7 @@ import {SERVER_PATH} from "../constants";
 export class AuthService {
 
   private currentUser: LoginData;
-  private loginUrl = SERVER_PATH + '/auth/cyberark/logon';
+  private loginUrl = 'https://10.0.116.183/PasswordVault/api/auth/cyberark/logon';
 
   constructor(public http: HttpClient) {
   }
@@ -47,7 +47,6 @@ export class AuthService {
 
   private extractData(res: Response) {
     let body = res.json();
-    debugger;
     return body || {};
   }
   private handleError(error: HttpErrorResponse) {
