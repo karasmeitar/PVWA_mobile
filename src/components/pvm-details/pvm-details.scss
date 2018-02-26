@@ -1,0 +1,52 @@
+pvm-details {
+  .card-header-md{
+    background-color: #3165bd;
+    font-size: 16px;
+  }
+
+  .details{
+    position: relative;
+
+    &-header{
+      &__toolbar{
+        &__title{
+          font-family: "Open Sans";
+          font-weight: 600;
+          &-col{
+
+            &-date{
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+    &-footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      margin: 10px;
+      /*using negative position for aligning the footer according to parent margin*/
+      left: -10px;
+      &-row{
+        &__col{
+          padding:0;
+          button{
+            height: 64px;
+            font-size: 16pt;
+            &.request-btn{
+
+              &-decline{
+                background-color: #f6112d;
+              }
+              &-approve{
+                background-color: #119c64;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

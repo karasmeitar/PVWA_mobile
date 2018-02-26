@@ -1,0 +1,96 @@
+<!-- Generated template for the PvmDetailsComponent component -->
+<!--
+<ion-header  class="details-header">
+  <ion-toolbar class="details-header__toolbar">
+    <ion-title class="details-header__toolbar__title">
+      <ion-row class="details-header__toolbar__title-row">
+        <ion-col class="details-header__toolbar__title-col">
+          {{title}}
+        </ion-col>
+        <ion-col class="details-header__toolbar__title-col-date">
+          {{date}}
+        </ion-col>
+      </ion-row>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="details_content" no-bounce>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item-divider class="details_content__item">
+          <div>requested By</div>
+
+          <div>
+            {{pendingRequest.requestedBy}}
+          </div>
+        </ion-item-divider>
+        <ion-item-divider>
+         <ion-title>account name</ion-title>
+        </ion-item-divider>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <div class="details__content">
+    {{text}}
+  </div>
+</ion-content>
+
+-->
+
+
+<ion-card class="details">
+  <ion-card-header  class="details-header">
+    <ion-title class="details-header__toolbar__title">
+      <ion-row class="details-header__toolbar__title-row">
+        <ion-col class="details-header__toolbar__title-col">
+          {{title}}
+        </ion-col>
+        <ion-col class="details-header__toolbar__title-col-date">
+          {{date}}
+        </ion-col>
+      </ion-row>
+    </ion-title>
+  </ion-card-header>
+
+  <ion-list>
+    <ion-item-divider class="details_content__item">
+      <h2>{{"requested By "| uppercase}}</h2>
+      <div>
+        {{pendingRequest.requestedBy}}
+      </div>
+    </ion-item-divider>
+    <ion-item-divider class="details_content__item">
+      <h2>{{"account "| uppercase}}</h2>
+      <div>
+        {{pendingRequest.accountName}}
+      </div>
+    </ion-item-divider>
+
+    <ion-item-divider class="details_content__item">
+      <h2>{{"time frame "| uppercase}}</h2>
+      <div>
+        {{pendingRequest.timeFrame}}
+      </div>
+    </ion-item-divider>
+    <ion-item-divider class="details_content__item">
+      <h2>{{"request reason "| uppercase}}</h2>
+      <div>
+        {{pendingRequest.reason}}
+      </div>
+    </ion-item-divider>
+  </ion-list>
+
+  <div class="details-footer">
+    <ion-row class="details-footer-row">
+      <ion-col class="details-footer-row__col">
+        <button ion-button full class="request-btn-decline">{{"decline" | uppercase}}</button>
+      </ion-col>
+      <ion-col class="details-footer-row__col">
+        <button ion-button full class="request-btn-approve">{{"approve"}}</button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-card>
