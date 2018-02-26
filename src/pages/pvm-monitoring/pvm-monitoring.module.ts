@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { PvmMonitoringPage } from './pvm-monitoring';
-import {PvmIncomingRequestsPage} from "../pvm-incoming-requests/pvm-incoming-requests";
+import {ComponentsModule} from "../../components/components.module";
+
+//import {PvmIncomingRequestsPage} from "../pvm-incoming-requests/pvm-incoming-requests";
 
 @NgModule({
   declarations: [
@@ -9,6 +11,7 @@ import {PvmIncomingRequestsPage} from "../pvm-incoming-requests/pvm-incoming-req
   ],
   imports: [
     IonicPageModule.forChild(PvmMonitoringPage),
+    ComponentsModule
   ],
   exports:[PvmMonitoringPage]
 })

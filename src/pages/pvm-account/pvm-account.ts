@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {accountData} from "../../model/accountData";
+//import {accountData} from "../../model/accountData";
 import {cardData} from "../../model/cardData";
 
 /**
