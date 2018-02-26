@@ -31,27 +31,31 @@ export class LoginPage {
   public login() {
     this.submitButton._elementRef.nativeElement.classList.add('processing');
     setTimeout(()=>{
-      this.submitButton._elementRef.nativeElement.classList.remove('processing');
-      this.submitButton._elementRef.nativeElement.classList.add('success');
-      setTimeout(()=> {
-        this.submitButton._elementRef.nativeElement.classList.remove('success');
-        this.nav.push(PvmMasterLayoutPage, {currentUser :this.registerCredentials});
-      },1000);
-
-    },3000);
-
-    this.auth.login(this.registerCredentials).subscribe(token => {
+      this.auth.login(this.registerCredentials).subscribe(token => {
         if (token) {
           this.auth.setToken(token);
           this.navigation.getAll().subscribe(response => console.log('Nav', response));
           //Navigate to request/accounts
+
+          this.submitButton._elementRef.nativeElement.classList.remove('processing');
+          this.submitButton._elementRef.nativeElement.classList.add('success');
+          setTimeout(()=> {
+            this.submitButton._elementRef.nativeElement.classList.remove('success');
+            this.nav.push(PvmMasterLayoutPage, {currentUser :this.registerCredentials});
+          },1000);
+
         } else {
           this.showError("Access Denied");
+          this.submitButton._elementRef.nativeElement.classList.remove('processing');
+          this.submitButton._elementRef.nativeElement.classList.remove('success');
         }
       },
       error => {
+        this.submitButton._elementRef.nativeElement.classList.remove('processing');
+        this.submitButton._elementRef.nativeElement.classList.remove('success');
         this.showError(error);
       });
+    },1000);
   }
 
   showLoading() {
