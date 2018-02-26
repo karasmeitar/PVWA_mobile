@@ -3,6 +3,7 @@ import {NavController, AlertController, LoadingController, Loading, IonicPage} f
 import {LoginData} from "../../model/loginData";
 import {AuthService} from "../../providers/login/authService";
 import {PvmMasterLayoutPage} from "../pvm-master-layout/pvm-master-layout";
+import {NavigationService} from "../../providers/navigation.service";
 
 
 @IonicPage()
@@ -18,7 +19,7 @@ export class LoginPage {
   isPasswordVisible: boolean;
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController,
-              private loadingCtrl: LoadingController) {
+              private loadingCtrl: LoadingController, private navigation: NavigationService) {
     this.registerCredentials = new LoginData('moshik', '123Cyber');
     this.isPasswordVisible = false;
   }
@@ -28,29 +29,33 @@ export class LoginPage {
   }
 
   public login() {
-    debugger;
     this.submitButton._elementRef.nativeElement.classList.add('processing');
     setTimeout(()=>{
-      this.submitButton._elementRef.nativeElement.classList.remove('processing');
-      this.submitButton._elementRef.nativeElement.classList.add('success');
-      setTimeout(()=> {
+      this.auth.login(this.registerCredentials).subscribe(token => {
+        if (token) {
+          this.auth.setToken(token);
+          this.navigation.getAll().subscribe(response => console.log('Nav', response));
+          //Navigate to request/accounts
+
+          this.submitButton._elementRef.nativeElement.classList.remove('processing');
+          this.submitButton._elementRef.nativeElement.classList.add('success');
+          setTimeout(()=> {
+            this.submitButton._elementRef.nativeElement.classList.remove('success');
+            this.nav.push(PvmMasterLayoutPage, {currentUser :this.registerCredentials});
+          },1000);
+
+        } else {
+          this.showError("Access Denied");
+          this.submitButton._elementRef.nativeElement.classList.remove('processing');
+          this.submitButton._elementRef.nativeElement.classList.remove('success');
+        }
+      },
+      error => {
+        this.submitButton._elementRef.nativeElement.classList.remove('processing');
         this.submitButton._elementRef.nativeElement.classList.remove('success');
-        this.nav.push(PvmMasterLayoutPage, {currentUser :this.registerCredentials});
-      },1000);
-
-    },3000)
-
-    return;
-    // this.auth.login(this.registerCredentials).subscribe(allowed => {
-    //     if (allowed) {
-    //       //this.nav.push(PvmMasterLayoutPage, {});
-    //     } else {
-    //       this.showError("Access Denied");
-    //     }
-    //   },
-    //   error => {
-    //     this.showError(error);
-    //   });
+        this.showError(error);
+      });
+    },1000);
   }
 
   showLoading() {
