@@ -19,8 +19,9 @@ export class PvmAccountPage {
   private accountData: cardData;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.accountData = {
-      infoItems: [{title: 'ACCOUNT', content:'Administrator on 10.8.9.7'},{title: 'test', content:'test'},{title: 'TIME FRAME', content:'12 Feb 12:00 - 12 Feb 18:00'},
-        {title: 'test', content:'test'}]
+      header : 'Anna Hamilton',
+      entityType: 'requests',
+      infoItems: [{title: 'ACCOUNT', content:'Administrator on 10.8.9.7'},{title: 'TIME FRAME', content:'12 Feb 12:00 - 12 Feb 18:00'}]
     }
   }
 
