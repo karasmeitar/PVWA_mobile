@@ -3,7 +3,8 @@ $line-height: 22pt;
 $lines-to-show: 4;
 $multiline-height: $line-height*$lines-to-show;
 pvm-details {
-  .card-header-md{
+  .card-header-md,.card-header-ios{
+    /*overriding card header bg for details only*/
     background-color: #3165bd;
     font-size: 14pt;
   }
@@ -27,6 +28,15 @@ pvm-details {
       }
     }
     &-content{
+      .key{
+        color: #666666;
+        font-size: 13pt;
+      }
+      .value{
+        color: #333333;
+        font-weight: 600;
+        font-size: 16pt;
+      }
       .reason{
         .value{
           font-size: $reason-font-size;

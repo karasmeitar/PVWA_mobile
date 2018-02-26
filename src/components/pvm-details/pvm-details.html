@@ -13,26 +13,27 @@
   </ion-card-header>
   <ion-list class="details-content">
     <ion-item-divider class="details_content__item">
-      <h2>{{"requested By "| uppercase}}</h2>
-      <div>
+      <h2 class="key">{{"requested By "| uppercase}}</h2>
+      <div class="value">
         {{pendingRequest.requestedBy}}
       </div>
     </ion-item-divider>
     <ion-item-divider class="details_content__item">
-      <h2>{{"account "| uppercase}}</h2>
-      <div>
+      <h2 class="key">{{"account "| uppercase}}</h2>
+      <div class="value">
         {{pendingRequest.accountName}}
       </div>
     </ion-item-divider>
 
     <ion-item-divider class="details_content__item">
-      <h2>{{"time frame "| uppercase}}</h2>
-      <div>
+      <h2 class="key">
+        {{"time frame "| uppercase}}</h2>
+      <div class="value">
         {{pendingRequest.timeFrame}}
       </div>
     </ion-item-divider>
     <ion-item-divider class="details_content__item reason">
-      <h2>{{"request reason "| uppercase}}</h2>
+      <h2 class="key">{{"request reason "| uppercase}}</h2>
       <div class="value">
         {{pendingRequest.reason}}
       </div>
