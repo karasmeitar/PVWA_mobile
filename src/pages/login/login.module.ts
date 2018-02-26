@@ -11,7 +11,7 @@ import {PvmMasterLayoutPageModule} from "../pvm-master-layout/pvm-master-layout.
   ],
   imports: [
     IonicPageModule.forChild(LoginPage),
-    IonicModule.forRoot(LoginPageModule),
+    IonicModule.forRoot(LoginPage),
     PvmMasterLayoutPageModule
   ],
 })
