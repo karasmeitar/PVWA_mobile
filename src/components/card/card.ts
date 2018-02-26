@@ -1,22 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-/**
- * Generated class for the CardComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
-  selector: 'card',
+  selector: 'pvm-card',
   templateUrl: 'card.html'
 })
 export class CardComponent {
 
-  text: string;
+  @Input() public header: string;
+  @Input() public mode: 'threat' | 'sessions' | 'accounts' | 'requests';
 
   constructor() {
-    console.log('Hello CardComponent Component');
-    this.text = 'Hello World';
+    this.header = '';
+    this.mode = 'threat';
   }
 
 }

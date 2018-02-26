@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Cyberark-icons-svg';
+  src:  url('../fonts/cyberark/Cyberark-icons-svg.eot?r1h66o');
+  src:  url('../fonts/cyberark/Cyberark-icons-svg.eot?r1h66o#iefix') format('embedded-opentype'),
+  url('../fonts/cyberark/Cyberark-icons-svg.ttf?r1h66o') format('truetype'),
+  url('../fonts/cyberark/Cyberark-icons-svg.woff?r1h66o') format('woff'),
+  url('../fonts/cyberark/Cyberark-icons-svg.svg?r1h66o#Cyberark-icons-svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="cyb-icon-"], [class*=" cyb-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Cyberark-icons-svg' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cyb-icon-accounts:before {
+  content: "\e900";
+}
+.cyb-icon-approve:before {
+  content: "\e901";
+}
+.cyb-icon-decline:before {
+  content: "\e902";
+}
+.cyb-icon-detection:before {
+  content: "\e903";
+}
+.cyb-icon-ic_cover:before {
+  content: "\e904";
+}
+.cyb-icon-ic_show:before {
+  content: "\e905";
+}
+.cyb-icon-request_multiple:before {
+  content: "\e906";
+}
+.cyb-icon-request_single:before {
+  content: "\e907";
+}
+.cyb-icon-sessions:before {
+  content: "\e908";
+}
+.cyb-icon-timeline:before {
+  content: "\e909";
+}
