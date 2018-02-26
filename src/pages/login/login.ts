@@ -26,6 +26,7 @@ export class LoginPage {
 
   public login() {
     this.showLoading()
+    this.nav.push('Main');
     this.auth.login(this.registerCredentials).subscribe(allowed => {
         if (allowed) {
           //Navigate to request/accounts
