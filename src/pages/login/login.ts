@@ -2,6 +2,8 @@ import {Component, ViewChild} from '@angular/core';
 import {NavController, AlertController, LoadingController, Loading, IonicPage} from 'ionic-angular';
 import {LoginData} from "../../model/loginData";
 import {AuthService} from "../../providers/login/authService";
+import {PvmMasterLayoutPage} from "../pvm-master-layout/pvm-master-layout";
+
 
 @IonicPage()
 @Component({
@@ -10,13 +12,14 @@ import {AuthService} from "../../providers/login/authService";
 })
 export class LoginPage {
   @ViewChild('password') passwordInput: any;
+  @ViewChild('submit') submitButton: any;
   loading: Loading;
   registerCredentials: LoginData;
   isPasswordVisible: boolean;
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
-    this.registerCredentials = new LoginData('', '');
+    this.registerCredentials = new LoginData('moshik', '123Cyber');
     this.isPasswordVisible = false;
   }
 
@@ -25,18 +28,29 @@ export class LoginPage {
   }
 
   public login() {
-    this.showLoading()
-    this.nav.push('Main');
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-        if (allowed) {
-          //Navigate to request/accounts
-        } else {
-          this.showError("Access Denied");
-        }
-      },
-      error => {
-        this.showError(error);
-      });
+    debugger;
+    this.submitButton._elementRef.nativeElement.classList.add('processing');
+    setTimeout(()=>{
+      this.submitButton._elementRef.nativeElement.classList.remove('processing');
+      this.submitButton._elementRef.nativeElement.classList.add('success');
+      setTimeout(()=> {
+        this.submitButton._elementRef.nativeElement.classList.remove('success');
+        this.nav.push(PvmMasterLayoutPage, {currentUser :this.registerCredentials});
+      },1000);
+
+    },3000)
+
+    return;
+    // this.auth.login(this.registerCredentials).subscribe(allowed => {
+    //     if (allowed) {
+    //       //this.nav.push(PvmMasterLayoutPage, {});
+    //     } else {
+    //       this.showError("Access Denied");
+    //     }
+    //   },
+    //   error => {
+    //     this.showError(error);
+    //   });
   }
 
   showLoading() {
@@ -47,13 +61,8 @@ export class LoginPage {
     this.loading.present();
   }
 
-  public iconClicked(showPass:boolean): void {
-    this.isPasswordVisible = showPass;
-    if(this.isPasswordVisible){
-      this.passwordInput.changeType('text');
-    } else {
-      this.passwordInput.changeType('password');
-    }
+  public iconClicked(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
   showError(text) {

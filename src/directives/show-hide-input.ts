@@ -11,7 +11,7 @@ export class ShowHideInput {
     this.type = 'password';
   }
 
-  changeType(type: string) {  // in your case function name is type
+  public changeType(type: string) {
     this.type = type;
     this.el.nativeElement.children[0].type = this.type; // change type for input inside the ion-input
   }

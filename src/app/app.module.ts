@@ -7,29 +7,24 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import {AuthService} from '../providers/login/authService';
 import {LoginPage} from "../pages/login/login";
-//import {PvmMasterLayoutPageModule} from "../pages/pvm-master-layout/pvm-master-layout.module";
+import {PvmMasterLayoutPage} from "../pages/pvm-master-layout/pvm-master-layout";
 import {HttpClientModule} from "@angular/common/http";
-import {ComponentsModule} from "../components/components.module";
-import {PvmDetailsComponent} from "../components/pvm-details/pvm-details";
+import {LoginPageModule} from "../pages/login/login.module";
 
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage//,
-   // PvmMasterLayoutPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    ComponentsModule
+    LoginPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    PvmDetailsComponent/*,
-    PvmMasterLayoutPageModule
-    */
+    LoginPage,
   ],
   providers: [
     StatusBar,
