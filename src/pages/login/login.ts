@@ -12,6 +12,7 @@ import {PvmMasterLayoutPage} from "../pvm-master-layout/pvm-master-layout";
 })
 export class LoginPage {
   @ViewChild('password') passwordInput: any;
+  @ViewChild('submit') submitButton: any;
   loading: Loading;
   registerCredentials: LoginData;
   isPasswordVisible: boolean;
@@ -27,19 +28,29 @@ export class LoginPage {
   }
 
   public login() {
-    this.showLoading();
-    this.nav.push(PvmMasterLayoutPage, {currentUser : this.registerCredentials});
+    debugger;
+    this.submitButton._elementRef.nativeElement.classList.add('processing');
+    setTimeout(()=>{
+      this.submitButton._elementRef.nativeElement.classList.remove('processing');
+      this.submitButton._elementRef.nativeElement.classList.add('success');
+      setTimeout(()=> {
+        this.submitButton._elementRef.nativeElement.classList.remove('success');
+        this.nav.push(PvmMasterLayoutPage, {currentUser :this.registerCredentials});
+      },1000);
+
+    },3000)
+
     return;
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-        if (allowed) {
-          //this.nav.push(PvmMasterLayoutPage, {});
-        } else {
-          this.showError("Access Denied");
-        }
-      },
-      error => {
-        this.showError(error);
-      });
+    // this.auth.login(this.registerCredentials).subscribe(allowed => {
+    //     if (allowed) {
+    //       //this.nav.push(PvmMasterLayoutPage, {});
+    //     } else {
+    //       this.showError("Access Denied");
+    //     }
+    //   },
+    //   error => {
+    //     this.showError(error);
+    //   });
   }
 
   showLoading() {
