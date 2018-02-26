@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {LoginData} from "../../model/loginData";
 import {catchError, map} from "rxjs/operators";
 import {ErrorObservable} from "rxjs/observable/ErrorObservable";
+import {SERVER_PATH} from "../constants";
 
 /*
   Generated class for the LoginProvider provider.
@@ -15,7 +16,7 @@ import {ErrorObservable} from "rxjs/observable/ErrorObservable";
 export class AuthService {
 
   private currentUser: LoginData;
-  private loginUrl = 'https://18.220.51.39/PasswordVault/api/auth/cyberark/logon';
+  private loginUrl = 'https://10.0.116.183/PasswordVault/api/auth/cyberark/logon';
 
   constructor(public http: HttpClient) {
   }
@@ -46,7 +47,6 @@ export class AuthService {
 
   private extractData(res: Response) {
     let body = res.json();
-    debugger;
     return body || {};
   }
   private handleError(error: HttpErrorResponse) {

@@ -2,6 +2,8 @@ import {Component, ViewChild} from '@angular/core';
 import {NavController, AlertController, LoadingController, Loading, IonicPage} from 'ionic-angular';
 import {LoginData} from "../../model/loginData";
 import {AuthService} from "../../providers/login/authService";
+import {PvmMasterLayoutPage} from "../pvm-master-layout/pvm-master-layout";
+
 
 @IonicPage()
 @Component({
@@ -25,10 +27,12 @@ export class LoginPage {
   }
 
   public login() {
-    this.showLoading()
+    this.showLoading();
+    this.nav.push(PvmMasterLayoutPage, {currentUser : this.registerCredentials});
+    return;
     this.auth.login(this.registerCredentials).subscribe(allowed => {
         if (allowed) {
-          //Navigate to request/accounts
+          //this.nav.push(PvmMasterLayoutPage, {});
         } else {
           this.showError("Access Denied");
         }
@@ -46,13 +50,8 @@ export class LoginPage {
     this.loading.present();
   }
 
-  public iconClicked(showPass:boolean): void {
-    this.isPasswordVisible = showPass;
-    if(this.isPasswordVisible){
-      this.passwordInput.changeType('text');
-    } else {
-      this.passwordInput.changeType('password');
-    }
+  public iconClicked(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
   }
 
   showError(text) {
