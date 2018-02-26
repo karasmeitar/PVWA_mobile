@@ -16,7 +16,7 @@ export class LoginPage {
 
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
-    this.registerCredentials = new LoginData('', '');
+    this.registerCredentials = new LoginData('moshik', '123Cyber');
     this.isPasswordVisible = false;
   }
 
