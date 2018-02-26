@@ -1,6 +1,8 @@
 import {Injectable} from "@angular/core";
 import {SERVER_PATH} from "./constants";
 import {HttpService} from "./http.service";
+import {NavigationData} from "../model/navigationData";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class NavigationService {
@@ -10,6 +12,8 @@ export class NavigationService {
   }
 
   public getAll() {
-    return this.http.get(this.navigationURL);
+    return this.http.get<NavigationData[]>(this.navigationURL).pipe(map(res => {
+      return res.map(item => new NavigationData(item['Name'], item['Count']));
+    }));
   }
 }
