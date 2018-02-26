@@ -3,6 +3,7 @@ import {NavController, AlertController, LoadingController, Loading, IonicPage} f
 import {LoginData} from "../../model/loginData";
 import {AuthService} from "../../providers/login/authService";
 
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -47,12 +48,13 @@ export class LoginPage {
   }
 
   public iconClicked(showPass:boolean): void {
-    this.isPasswordVisible = showPass;
-    if(this.isPasswordVisible){
-      this.passwordInput.changeType('text');
+    debugger;
+    if(showPass){
+      this.passwordInput.type ='text';
     } else {
-      this.passwordInput.changeType('password');
+      this.passwordInput.type ='password';
     }
+    this.isPasswordVisible = showPass;
   }
 
   showError(text) {

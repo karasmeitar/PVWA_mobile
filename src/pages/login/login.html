@@ -1,5 +1,3 @@
-<ion-icon *ngIf="true" name="eye" onclick="iconClicked(true)"></ion-icon>
-
 <ion-content class="login" no-bounce>
   <ion-row class="login__logo-row">
     <ion-col class="login__logo-row__logo-col">
@@ -17,12 +15,14 @@
             </ion-item>
             <ion-item class="login__content__item">
               <ion-label color="secondary" floating class="login__content__item__label">PASSWORD</ion-label>
-              <ion-input  type="password" name="password" [(ngModel)]="registerCredentials.password"
+              <ion-input   type="password" name="password" [(ngModel)]="registerCredentials.password"
                          required show-hide-input #password></ion-input>
-              <ion-icon *ngIf="!isPasswordVisible" name="eye-off" onclick="iconClicked(false)"></ion-icon>
+              <ion-icon *ngIf="!isPasswordVisible" name="eye-off" (click)="iconClicked(true)" item-right></ion-icon>
+              <ion-icon *ngIf="isPasswordVisible" name="eye" (click)="iconClicked(false)" item-right></ion-icon>
             </ion-item>
           </ion-list>
         </ion-col>
+
       </ion-row>
       <ion-row class="login__content__submit-row">
         <button ion-button class="submit-btn" round type="submit" [disabled]="!registerForm.form.valid">Sign in</button>
