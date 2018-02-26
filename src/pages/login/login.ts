@@ -46,9 +46,13 @@ export class LoginPage {
 
         } else {
           this.showError("Access Denied");
+          this.submitButton._elementRef.nativeElement.classList.remove('processing');
+          this.submitButton._elementRef.nativeElement.classList.remove('success');
         }
       },
       error => {
+        this.submitButton._elementRef.nativeElement.classList.remove('processing');
+        this.submitButton._elementRef.nativeElement.classList.remove('success');
         this.showError(error);
       });
     },1000);
