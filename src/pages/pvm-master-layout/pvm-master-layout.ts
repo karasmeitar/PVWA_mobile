@@ -8,7 +8,7 @@ import {IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage({name: 'Main'})
+@IonicPage()
 @Component({
   selector: 'page-pvm-master-layout',
   templateUrl: 'pvm-master-layout.html',
