@@ -15,7 +15,7 @@ import {ErrorObservable} from "rxjs/observable/ErrorObservable";
 export class AuthService {
 
   private currentUser: LoginData;
-  private loginUrl = 'https://18.220.51.39/PasswordVault/api/auth/cyberark/logon';
+  private loginUrl = 'https://10.0.116.183/PasswordVault/api/auth/cyberark/logon';
 
   constructor(public http: HttpClient) {
   }
