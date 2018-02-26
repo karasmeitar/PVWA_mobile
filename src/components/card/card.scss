@@ -1,16 +1,50 @@
 
 
 .cyb-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   .card-ios, .card-md {
     position: relative;
     border-left-style: solid;
     border-left-width: 5px;
   }
 
+  &__header {
+    float: left;
+  }
+
   &__icon {
-    position: absolute;
-    top: 0;
-    right: 0;
+    float: right;
+
+    &--blue {
+      color: $CP1;
+    }
+
+    &--red {
+      color: $CU1;
+    }
+
+    &--orange {
+      color: $CU2;
+    }
+  }
+
+  &__icon-text {
+    float: right;
+    margin-right: 7px;
+
+    &--blue {
+      color: $CP1;
+    }
+
+    &--red {
+      color: $CU1;
+    }
+
+    &--orange {
+      color: $CU2;
+    }
   }
 
   &--threat {

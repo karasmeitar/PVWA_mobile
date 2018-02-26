@@ -1,3 +1,7 @@
 
-  <div>Accounts</div>
-  <application-card [cardData]="accountData"></application-card>
+  <ion-col class="account-col">
+    <ng-container *ngFor="let account of accounts">
+      <application-card class="account-col__account" [applicationData]="account"></application-card>
+    </ng-container>
+  </ion-col>
+
