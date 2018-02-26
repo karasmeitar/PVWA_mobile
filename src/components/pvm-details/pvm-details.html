@@ -11,8 +11,7 @@
       </ion-row>
     </ion-title>
   </ion-card-header>
-
-  <ion-list>
+  <ion-list class="details-content">
     <ion-item-divider class="details_content__item">
       <h2>{{"requested By "| uppercase}}</h2>
       <div>
@@ -32,9 +31,9 @@
         {{pendingRequest.timeFrame}}
       </div>
     </ion-item-divider>
-    <ion-item-divider class="details_content__item">
+    <ion-item-divider class="details_content__item reason">
       <h2>{{"request reason "| uppercase}}</h2>
-      <div>
+      <div class="value">
         {{pendingRequest.reason}}
       </div>
     </ion-item-divider>
