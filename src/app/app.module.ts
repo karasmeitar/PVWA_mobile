@@ -7,9 +7,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import {AuthService} from '../providers/login/authService';
 import {LoginPage} from "../pages/login/login";
-import {PvmMasterLayoutPage} from "../pages/pvm-master-layout/pvm-master-layout";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginPageModule} from "../pages/login/login.module";
+import {HttpService} from "../providers/http.service";
+import {IncomingRequestsService} from "../providers/incoming-requests.service";
+import {AccountsService} from "../providers/accounts.service";
+import {NavigationService} from "../providers/navigation.service";
 
 @NgModule({
   declarations: [
@@ -31,6 +34,10 @@ import {LoginPageModule} from "../pages/login/login.module";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
+    HttpService,
+    IncomingRequestsService,
+    AccountsService,
+    NavigationService
   ]
 })
 export class AppModule {}
