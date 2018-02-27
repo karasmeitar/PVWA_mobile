@@ -42,19 +42,33 @@ export class PvmDetailsComponent {
 
   public cancelClicked(): void {
     this.actionTitle = "";
+    this.reason = "";
     this.isReasonDisplay = false;
   }
 
   public applyClicked(): void {
-    if (this.actionTitle === "confirm") {
-      this.request.confirmRequest(this.incomingData.RequestID, this.reason).subscribe(response => console.log('Approved', response));
+    try{
+      if (this.actionTitle === "confirm") {
+        this.request.confirmRequest(this.incomingData.RequestID, this.reason).subscribe(response => console.log('Approved', response));
+      }
+      else {
+
+        this.nav.pop();
+        return;
+        //TODO: fix the bug
+        // this.request.rejectRequest(this.incomingData.RequestID, this.reason).subscribe(response => {
+        //   console.log('Reject', response);
+        //   this.actionTitle = "";
+        //   this.isReasonDisplay = false;
+        //   this.nav.pop();
+        // });
+      }
     }
-    else {
-      this.request.rejectRequest(this.incomingData.RequestID, this.reason).subscribe(response => console.log('Reject', response));
+    catch(e) {
+      console.log('error>>>', e);
     }
-    this.actionTitle = "";
-    this.isReasonDisplay = false;
-  debugger;
-    this.nav.pop();
+
+    //this.nav.push(PvmMasterLayoutPage);
   }
+
 }

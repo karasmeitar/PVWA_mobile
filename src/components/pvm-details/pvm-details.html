@@ -47,14 +47,15 @@
         <button  icon-start  ion-button full class="request-btn-decline" (click)="declineClicked()">  <span class="cyb-icon-decline"></span>{{"reject" | uppercase}}</button>
       </ion-col>
       <ion-col class="details-footer-row__col">
-        <button  icon-start  ion-button full class="request-btn-approve" (click)="approveClicked()"> <span class="cyb-icon-approve"></span> {{"confirm"}}</button>
+        <button  icon-start  ion-button full class="request-btn-approve" (click)="approveClicked()"> <span class="cyb-icon-approve"></span> {{"confirm" | uppercase}}</button>
       </ion-col>
     </ion-row>
   </div>
 </ion-card>
+<div class="details-mask" *ngIf="isReasonDisplay"></div>
 <div class="details-reason" *ngIf="isReasonDisplay">
   <ion-row class="details-reason-row">
-    <ion-title class="details-footer-row__reason-title">Please specify {{actionTitle}} reason</ion-title>
+    <ion-title class="details-reason-title">Please specify {{actionTitle}} reason</ion-title>
   </ion-row>
   <ion-row class="details-reason-row details-reason-input">
     <ion-textarea placeholder="Insert reason" class="details-footer-row__reason-input" [(ngModel)]="reason"></ion-textarea>
@@ -65,7 +66,7 @@
       </button>
     </ion-col>
     <ion-col class="details-footer-row__col">
-      <button ion-button full class="request-btn-apply" (click)="applyClicked()"> {{"apply"}}
+      <button ion-button full class="request-btn-apply" (click)="applyClicked()"> {{"apply" | uppercase}}
       </button>
     </ion-col>
   </ion-row>

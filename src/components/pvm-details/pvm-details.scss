@@ -27,15 +27,26 @@ pvm-details {
   }
 
   .details {
-    position: relative;
+    position: absolute;
     text-align: left;
     font-size: 13pt;
     margin-top: 56pt;
-
+    &-mask {
+      background-color: $CP14;
+      height: 100%;
+      position: absolute;
+      z-index: 500;
+      width: 100%;
+      opacity: 0.45;
+      display: block;
+    }
     &-header {
       &__toolbar {
         &__title {
           font-weight: 600;
+          .toolbar-title-md {
+            padding: 0;
+          }
           &-col {
             &-date {
               text-align: right;
@@ -72,7 +83,7 @@ pvm-details {
       position: fixed;
       bottom: 0;
       width: 100%;
-      margin: 10px;
+      margin: 10px 10px -4px 10px;
       /*using negative position for aligning the footer according to parent margin*/
       left: -10px;
       &-row {
@@ -83,46 +94,44 @@ pvm-details {
             font-size: 16pt;
           }
         }
-
-        &-reason {
-          position: fixed;
-          z-index: 1000;
-          height: 258px;
-          width: 100%;
-          bottom: 56px;
-          background: $CP6;
-          &-input {
-            border: $CS13 1px solid;
-            border-radius: 2px;
-            color: $XXX;
-            margin: 20px;
-            textarea {
-              height: 120px;
-            }
-            &-title {
-              .toolbar-title-md {
-                color: $CP12;
-                height: 56px;
-                padding-top: 16px;
-              }
-            }
-          }
+      }
+    }
+    &-reason {
+      position: fixed;
+      z-index: 1000;
+      height: 258px;
+      width: 100%;
+      bottom: 47px;
+      background: $CP6;
+      &-input {
+        border: $CS13 1px solid;
+        border-radius: 2px;
+        color: $XXX;
+        margin: 20px;
+        textarea {
+          height: 120px;
+        }
+      }
+      &-title {
+        .toolbar-title-md {
+          color: $CP12;
+          padding-top: 16px;
+          text-align: center;
         }
       }
     }
+    .cyb-icon-approve {
+      margin-right: 5px;
+    }
+
+    .cyb-icon-decline {
+      margin-right: 5px;
+    }
+    .details-row {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+    }
   }
-}
-
-.cyb-icon-approve{
-  margin-right: 5px;
-}
-
-.cyb-icon-decline{
-  margin-right: 5px;
-}
-.details-row{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
 }

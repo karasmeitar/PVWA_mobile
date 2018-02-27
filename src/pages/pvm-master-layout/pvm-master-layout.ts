@@ -41,7 +41,7 @@ export class PvmMasterLayoutPage {
     this.tabs = [];
     this.navigation.getAll().subscribe(response => {
       this.tabs = response;
-      this.tabs.push(new NavigationData('LiveSessions', 0));
+      this.tabs.push(new NavigationData('LiveSessions', 3));
       this.translateNavigationDataName();
       this.currentIndex = 1;
       this.goToSlide(1);
