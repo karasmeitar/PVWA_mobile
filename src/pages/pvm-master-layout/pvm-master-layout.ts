@@ -43,7 +43,8 @@ export class PvmMasterLayoutPage {
       this.tabs = response;
       this.tabs.push(new NavigationData('LiveSessions', 0));
       this.translateNavigationDataName();
-      this.topNavbarSlidesChange(this.tabSlide);
+      this.currentIndex = 1;
+      this.goToSlide(1);
     });
   }
 
