@@ -30,7 +30,7 @@ export class PvmAccountPage {
             infoItems:[{title: 'ADDRESS', content: account.Properties['Address']},
               {title: 'LAST ACCESS', content: account.Properties['LastUsedBy'] +  moment.unix(account.Properties['LastUsedDate']).format("MM/DD/YYYY")}],
             icon: 'cyb-icon-accounts',
-            iconColor: "blue"
+            iconColor: "'blue'"
           }
       })
     })

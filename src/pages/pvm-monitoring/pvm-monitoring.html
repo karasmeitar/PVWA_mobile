@@ -1,7 +1,7 @@
-<!--
-  Generated template for the PvmMonitoringPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<div>Monitoring</div>
+<ion-col class="live-col">
+  <ng-container *ngFor="let live of monitoring">
+    <application-card class="live-col__session" [applicationData]="live"></application-card>
+  </ng-container>
+</ion-col>
+

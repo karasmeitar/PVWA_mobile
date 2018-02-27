@@ -48,6 +48,7 @@ $CS22: #84ffff;
 $CU1: #f6112d;
 $CU2: rgb(255, 156, 0);
 $CS55: rgb(215, 239, 255); /* color name TBD by the ui */
+$CS56:#021737;
 $CP7:#fafafa;
 
 
@@ -139,6 +140,8 @@ $font-family-base: "Open Sans", sans-serif !default;
   font-style: normal;
 }
 
-/*$toolbar-background: #3165bd;*/
+$toolbar-background: $CS56;
 $toolbar-md-title-font-size: 16pt;
 $toolbar-md-title-text-color	: #ffffff;
+
+

@@ -1,7 +1,7 @@
 
 <ion-col class="request-col">
   <ng-container *ngFor="let request of requests">
-    <application-card class="request-col__account" [applicationData]="request"></application-card>
+    <application-card class="request-col__account" [applicationData]="request" (click)="openRequestDetails(request)"></application-card>
   </ng-container>
 </ion-col>
 

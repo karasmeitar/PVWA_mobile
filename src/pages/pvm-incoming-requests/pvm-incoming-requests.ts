@@ -4,6 +4,7 @@ import {IncomingRequestsService} from "../../providers/incoming-requests.service
 import {IncomingRequestData} from "../../model/IncomingRequestData";
 import {cardData} from "../../model/cardData";
 import moment from 'moment'
+import {PvmIncomingRequestsDetailsPage} from "../pvm-incoming-requests-details/pvm-incoming-requests-details";
 
 /**
  * Generated class for the PvmIncomingRequestsPage page.
@@ -43,6 +44,11 @@ export class PvmIncomingRequestsPage {
     if(request.AccessFrom && request.AccessTo){
       moment.unix(request.AccessFrom).format("MM/DD/YYYY") + ' - ' + moment.unix(request.AccessTo).format("MM/DD/YYYY")
     }
+  }
+  openRequestDetails(request: IncomingRequestData){
+    this.navCtrl.push(PvmIncomingRequestsDetailsPage, {
+      item: request
+    });
   }
 
 }

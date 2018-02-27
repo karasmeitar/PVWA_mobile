@@ -17,6 +17,7 @@ import { ApplicationCardComponent } from './application-card/application-card';
     CybSvgComponent,
     PvmDetailsComponent,
     PvmInformationBlockComponent,
-    ApplicationCardComponent]
+    ApplicationCardComponent,
+    ]
 })
 export class ComponentsModule {}

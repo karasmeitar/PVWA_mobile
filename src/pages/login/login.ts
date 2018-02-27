@@ -35,8 +35,6 @@ export class LoginPage {
         if (token) {
           this.auth.setToken(token);
           this.navigation.getAll().subscribe(response => console.log('Nav', response));
-          //Navigate to request/accounts
-
           this.submitButton._elementRef.nativeElement.classList.remove('processing');
           this.submitButton._elementRef.nativeElement.classList.add('success');
           setTimeout(()=> {
