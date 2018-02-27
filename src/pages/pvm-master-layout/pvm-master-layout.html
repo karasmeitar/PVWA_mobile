@@ -1,23 +1,22 @@
-<div class="top-banner"></div>
+
 <ion-header>
+
+  <ion-navbar hideBackButton align-title="center">
+    <ion-title>
+      <img class="toolbar__logo-img" src="../login/../../assets/imgs/CYB_banner.png"/>
+    </ion-title>
+  </ion-navbar>
 
   <div class="top-nav-bar">
     <div class="top-nav-bar__shape">
-      <div class="top-nav-bar__shape__mask top-nav-bar__shape__mask--{{type}}">
-        <i class="cyb-icon-mask"></i>
-
-        <i class="cyb-icon-graphs">
-          <i class="path1"></i>
-          <i class="path2"></i>
-          <i class="path3"></i>
-        </i>
-      </div>
+      <div class="top-nav-bar__shape__mask top-nav-bar__shape__mask--{{type}}"></div>
     </div>
     <ion-slides #tabSlide class="top-nav-bar__tab-slides"
                 slidesPerView="3"
                 [centeredSlides]="true"
-                [loop]="false" (ionSlideDidChange)="topNavbarSlidesChange($event)">
-      <ion-slide *ngFor="let tab of tabs; let i = index" (click)="goToSlide(i-1)">
+                [loop]="false"
+                (ionSlideDidChange)="topNavbarSlidesChange($event)">
+      <ion-slide *ngFor="let tab of tabs; let i = index" (click)="goToSlide(i)">
         <div class="top-nav-bar__tab-slides__tab"
              [class.top-nav-bar__tab-slides__tab--center]="currentIndex === i">
           <div class="top-nav-bar__tab-slides__tab__number">
@@ -53,4 +52,6 @@
   </ion-slide>
 
 </ion-slides>
+
+<!--<pvm-details></pvm-details>-->
 
