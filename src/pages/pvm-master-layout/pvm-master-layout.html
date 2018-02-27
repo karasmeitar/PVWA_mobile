@@ -1,30 +1,50 @@
-<!--
-  Generated template for the PvmMasterLayoutPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-tabs style="height: 100px; background-color: pink; color: black">
-    <ion-tab (click)="goToSlide(1)" tabTitle="Account"><a>Account</a></ion-tab>
-    <ion-tab (click)="goToSlide(2)" tabTitle="Monitoring"><a>Monitoring</a></ion-tab>
-    <ion-tab (click)="goToSlide(3)"  tabTitle="Incoming request"><a>request</a></ion-tab>
-  </ion-tabs>
+  <div class="top-nav-bar">
+    <div class="top-nav-bar__shape">
+      <div class="top-nav-bar__shape__mask top-nav-bar__shape__mask--{{type}}">
+        <i class="cyb-icon-mask"></i>
 
+        <i class="cyb-icon-graphs">
+          <i class="path1"></i>
+          <i class="path2"></i>
+          <i class="path3"></i>
+        </i>
+      </div>
+    </div>
+    <ion-slides #tabSlide class="top-nav-bar__tab-slides"
+                slidesPerView="3"
+                [centeredSlides]="true"
+                [loop]="false" (ionSlideDidChange)="topNavbarSlidesChange($event)">
+      <ion-slide *ngFor="let tab of tabs; let i = index" (click)="goToSlide(i-1)">
+        <div class="top-nav-bar__tab-slides__tab"
+             [class.top-nav-bar__tab-slides__tab--center]="currentIndex === i">
+          <div class="top-nav-bar__tab-slides__tab__number">
+            {{tab.count}}
+          </div>
+          <div class="top-nav-bar__tab-slides__tab__name">
+            {{tab.translatedName}}
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-header>
 
-<ion-slides style="background-color: blue">
-  <ion-slide>
+<ion-slides class="content-slides" [ngSwitch]="currentContentSlide">
+
+  <ion-slide class="content-slides__slide" *ngSwitchCase="'FavoriteAccounts'">
     <page-pvm-account></page-pvm-account>
   </ion-slide>
 
-  <ion-slide style="background-color: green">
+  <ion-slide class="content-slides__slide" *ngSwitchCase="'LiveSessions'">
     <page-pvm-monitoring></page-pvm-monitoring>
   </ion-slide>
 
-  <ion-slide style="background-color: red">
+  <ion-slide class="content-slides__slide" *ngSwitchCase="'IncomingRequests'">
     <page-pvm-incoming-requests></page-pvm-incoming-requests>
   </ion-slide>
+
 </ion-slides>
 

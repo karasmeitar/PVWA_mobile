@@ -1,3 +1,90 @@
-ion-slides {
-  height: auto;
+.top-nav-bar {
+  &__shape {
+    position: relative;
+    &__mask {
+      position: absolute;
+      top: -45px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      i.cyb-icon-mask {
+        text-shadow: 0px 2px 3px rgba(0,0,0,0.6);
+        font-size: 185px;
+      }
+
+      i.cyb-icon-graphs {
+        display: none;
+        font-size: 120px;
+        position: absolute;
+        top: 44px;
+        left: 10px;
+
+        i.path1, i.path2, i.path3 {
+          font-size: 120px;
+        }
+      }
+
+      &--threat {
+        color: $CC2;;
+      }
+      &--sessions {
+        color: $CC4;
+      }
+      &--accounts {
+        color: $CS19;
+      }
+      &--requests {
+        color: $CP1;
+      }
+    }
+  }
+
+  &__tab-slides {
+    background: $CP1;
+    color: $CP6;
+    height: 120px;
+
+    &__tab {
+      &__number {
+        color: $CS55;
+        font-size: 30pt;
+        transition: .3s all;
+      }
+      &__name {
+        color: $CS55;
+        font-size: 10pt;
+        padding: 0 14px;
+        transition: .3s all;
+      }
+      &--center &__number {
+        color: $CP6;
+        font-size: 40pt;
+        transition: .3s all;
+      }
+      &--center &__name {
+        color: $CP6;
+        font-size: 12pt;
+        transition: .3s all;
+      }
+    }
+  }
+}
+
+.content-slides {
+  &__slide {
+    background: $CP6;
+  }
+}
+
+
+.swiper-slide-prev {
+  .top-nav-bar__tab-slides__tab__name {
+    text-indent: -5px;
+  }
+}
+
+.swiper-slide swiper-slide-next {
+  .top-nav-bar__tab-slides__tab__name {
+    text-indent: 5px;
+  }
 }

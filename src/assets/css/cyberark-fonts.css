@@ -54,3 +54,23 @@
 .cyb-icon-timeline:before {
   content: "\e909";
 }
+.cyb-icon-graphs .path1:before {
+  content: "\e90a";
+  color: rgb(0, 0, 0);
+  opacity: 0.2571;
+}
+.cyb-icon-graphs .path2:before {
+  content: "\e90b";
+  margin-left: -1.1845703125em;
+  color: rgb(0, 0, 0);
+  opacity: 0.2536;
+}
+.cyb-icon-graphs .path3:before {
+  content: "\e90c";
+  margin-left: -1.1845703125em;
+  color: rgb(0, 0, 0);
+  opacity: 0.2486;
+}
+.cyb-icon-mask:before {
+  content: "\e90d";
+}
