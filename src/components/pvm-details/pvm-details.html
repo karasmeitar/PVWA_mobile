@@ -11,44 +11,59 @@
       </ion-row>
     </ion-title>
   </ion-card-header>
-  <ion-list class="details-content">
+
+  <ion-list>
     <ion-item-divider class="details_content__item">
-      <h2 class="key">{{"requested By "| uppercase}}</h2>
-      <div class="value">
+      <h2>{{"requested By "| uppercase}}</h2>
+      <div>
         {{pendingRequest.requestedBy}}
       </div>
     </ion-item-divider>
     <ion-item-divider class="details_content__item">
-      <h2 class="key">{{"account "| uppercase}}</h2>
-      <div class="value">
+      <h2>{{"account "| uppercase}}</h2>
+      <div>
         {{pendingRequest.accountName}}
       </div>
     </ion-item-divider>
 
     <ion-item-divider class="details_content__item">
-      <h2 class="key">
-        {{"time frame "| uppercase}}</h2>
-      <div class="value">
+      <h2>{{"time frame "| uppercase}}</h2>
+      <div>
         {{pendingRequest.timeFrame}}
       </div>
     </ion-item-divider>
-    <ion-item-divider class="details_content__item reason">
-      <h2 class="key">{{"request reason "| uppercase}}</h2>
-      <div class="value">
+    <ion-item-divider class="details_content__item">
+      <h2>{{"request reason "| uppercase}}</h2>
+      <div>
         {{pendingRequest.reason}}
       </div>
     </ion-item-divider>
   </ion-list>
 
-  <div class="details-footer">
+  <div class="details-footer"  *ngIf="!isReasonDisplay">
     <ion-row class="details-footer-row">
       <ion-col class="details-footer-row__col">
-        <button ion-button full class="request-btn-decline">{{"decline" | uppercase}}</button>
+        <button ion-button full class="request-btn-decline" (click)="declineClicked()">{{"decline" | uppercase}}</button>
       </ion-col>
       <ion-col class="details-footer-row__col">
-        <button ion-button full class="request-btn-approve">{{"approve"}}</button>
+        <button ion-button full class="request-btn-approve" (click)="approveClicked()">{{"approve"}}</button>
       </ion-col>
     </ion-row>
   </div>
-
 </ion-card>
+<div class="details-reason" *ngIf="isReasonDisplay">
+  <ion-row class="details-reason-row">
+    <ion-title class="details-footer-row__reason-title">Please specify {{actionTitle}} reason</ion-title>
+  </ion-row>
+  <ion-row class="details-reason-row details-reason-input">
+    <ion-textarea placeholder="Insert reason" class="details-footer-row__reason-input" [(ngModel)]="reason"></ion-textarea>
+  </ion-row>
+  <ion-row class="details-reason-row">
+    <ion-col class="details-footer-row__col">
+      <button ion-button full class="request-btn-cancel" (click)="cancelClicked()">{{"cancel" | uppercase}}</button>
+    </ion-col>
+    <ion-col class="details-footer-row__col">
+      <button ion-button full class="request-btn-apply" (click)="applyClicked()">{{"apply"}}</button>
+    </ion-col>
+  </ion-row>
+</div>

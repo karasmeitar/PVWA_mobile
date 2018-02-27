@@ -1,44 +1,60 @@
+$text-input-placeholder-color:$XXX;
 $reason-font-size: 14pt;
 $line-height: 22pt;
 $lines-to-show: 4;
 $multiline-height: $line-height*$lines-to-show;
 pvm-details {
-  .card-header-md,.card-header-ios{
+  .card-header-md, .card-header-ios {
     /*overriding card header bg for details only*/
-    background-color: #3165bd;
+    background-color: $CP1;
     font-size: 14pt;
   }
 
-  .details{
+  .request-btn {
+
+    &-decline {
+      background-color: $CU1;
+    }
+    &-approve {
+      background-color: $CS19;
+    }
+    &-apply {
+      background-color: $CP1;
+    }
+    &-cancel {
+      background-color: $CP10;
+    }
+  }
+
+  .details {
     position: relative;
     text-align: left;
     font-size: 13pt;
 
-    &-header{
-      &__toolbar{
-        &__title{
-          font-family: "Open Sans";
+    &-header {
+      &__toolbar {
+        &__title {
           font-weight: 600;
-          &-col{
-            &-date{
+          &-col {
+            &-date {
               text-align: right;
             }
           }
         }
       }
     }
-    &-content{
-      .key{
-        color: #666666;
+    &-content {
+      .key {
+        color: $CP11;
         font-size: 13pt;
       }
-      .value{
-        color: #333333;
+      .value {
+        color: $CP12;
         font-weight: 600;
         font-size: 16pt;
       }
-      .reason{
-        .value{
+      .reason {
+        .value {
           font-size: $reason-font-size;
           line-height: $line-height;
           -webkit-line-clamp: $lines-to-show;
@@ -51,26 +67,42 @@ pvm-details {
         }
       }
     }
-    &-footer{
+    &-footer {
       position: fixed;
       bottom: 0;
       width: 100%;
       margin: 10px;
       /*using negative position for aligning the footer according to parent margin*/
       left: -10px;
-      &-row{
-        &__col{
-          padding:0;
-          button{
+      &-row {
+        &__col {
+          padding: 0;
+          button {
             height: 64px;
             font-size: 16pt;
-            &.request-btn{
+          }
+        }
 
-              &-decline{
-                background-color: #f6112d;
-              }
-              &-approve{
-                background-color: #119c64;
+        &-reason {
+          position: fixed;
+          z-index: 1000;
+          height: 258px;
+          width: 100%;
+          bottom: 56px;
+          background: $CP6;
+          &-input {
+            border: $CS13 1px solid;
+            border-radius: 2px;
+            color: $XXX;
+            margin: 20px;
+            textarea {
+              height: 120px;
+            }
+            &-title {
+              .toolbar-title-md {
+                color: $CP12;
+                height: 56px;
+                padding-top: 16px;
               }
             }
           }
@@ -78,5 +110,4 @@ pvm-details {
       }
     }
   }
-
 }
