@@ -30,7 +30,7 @@ page-login {
         ion-input{
           color: $CS22;
         }
-        ion-icon{
+        span{
           z-index: 1000;// bad code, it's because the ion-item block the click
         }
       }

@@ -1,7 +1,7 @@
-<!--
-  Generated template for the PvmIncomingRequestsPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<div>Incoming Requests</div>
+<ion-col class="request-col">
+  <ng-container *ngFor="let request of requests">
+    <application-card class="request-col__account" [applicationData]="request"></application-card>
+  </ng-container>
+</ion-col>
+

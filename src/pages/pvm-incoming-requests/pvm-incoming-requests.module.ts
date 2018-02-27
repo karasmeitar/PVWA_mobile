@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { PvmIncomingRequestsPage } from './pvm-incoming-requests';
 import { PvmAccountPage } from "../pvm-account/pvm-account";
+import {ComponentsModule} from "../../components/components.module";
 
 @NgModule({
   declarations: [
@@ -9,6 +10,7 @@ import { PvmAccountPage } from "../pvm-account/pvm-account";
   ],
   imports: [
     IonicPageModule.forChild(PvmIncomingRequestsPage),
+    ComponentsModule
   ],
   exports:[PvmIncomingRequestsPage]
 })

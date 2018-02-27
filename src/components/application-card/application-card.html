@@ -3,7 +3,7 @@
           [icon]="applicationData.icon"
           [iconText]="applicationData.iconText"
           [iconColor]="applicationData.iconColor">
-  <ng-template *ngFor="let cardInfo of applicationData.infoItems">
+  <ng-container *ngFor="let cardInfo of applicationData.infoItems">
   <pvm-information-block title="{{cardInfo.title}}" content="{{cardInfo.content}}"></pvm-information-block>
-  </ng-template>
+  </ng-container>
 </pvm-card>

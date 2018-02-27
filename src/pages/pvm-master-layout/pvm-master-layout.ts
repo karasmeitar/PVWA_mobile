@@ -42,7 +42,7 @@ export class PvmMasterLayoutPage {
     this.navigation.getAll().subscribe(response => {
       this.tabs = this.tabs.concat(response);
       this.translateNavigationDataName();
-      this.updateCurrentIndex();
+      //this.updateCurrentIndex();
     });
   }
 

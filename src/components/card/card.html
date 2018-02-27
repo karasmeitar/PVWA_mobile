@@ -1,11 +1,11 @@
 <div class="cyb-card cyb-card--{{entityType}}">
   <ion-card>
-    <ion-card-header>
-      <strong class="cyb-card__header">{{header}}</strong>
+    <ion-card-header *ngIf="header != ''">
+      <strong  class="cyb-card__header">{{header.toUpperCase()}}</strong>
       <ion-icon *ngIf="icon" class="{{icon}} cyb-card__icon cyb-card__icon--{{iconColor || 'blue'}}"></ion-icon>
-      <span *ngIf="iconText" class="cyb-card__icon-text cyb-card__icon-text--{{iconColor || 'blue'}}">{{iconText}}</span>
+      <span *ngIf="iconText" class="cyb-card__icon-text cyb-card__icon-text--{{iconColor || 'blue'}}">{{iconText.toUpperCase()}}</span>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content >
       <ng-content></ng-content>
     </ion-card-content>
   </ion-card>

@@ -17,8 +17,10 @@
               <ion-label color="secondary" floating class="login__content__item__label">PASSWORD</ion-label>
               <ion-input  type="{{isPasswordVisible ? 'text' : 'password'}}" name="password"  [(ngModel)]="registerCredentials.password"
                          required  #password></ion-input>
-              <ion-icon  *ngIf="!isPasswordVisible" name="eye-off" (click)="iconClicked(true)" item-right></ion-icon>
-              <ion-icon  *ngIf="isPasswordVisible" name="eye" (click)="iconClicked(false)" item-right></ion-icon>
+              <!--<ion-icon  *ngIf="!isPasswordVisible" name="eye-off" (click)="iconClicked(true)" item-right></ion-icon>-->
+              <!--<ion-icon  *ngIf="isPasswordVisible" name="eye" (click)="iconClicked(false)" item-right></ion-icon>-->
+              <span *ngIf="!isPasswordVisible" class="cyb-icon-ic_show"(click)="iconClicked(true)" item-right></span>
+              <span *ngIf="isPasswordVisible" class="cyb-icon-ic_cover"(click)="iconClicked(false)" item-right></span>
             </ion-item>
           </ion-list>
         </ion-col>

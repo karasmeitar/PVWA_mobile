@@ -5,9 +5,13 @@
   flex-direction: column;
   align-items: flex-start;
   .card-ios, .card-md {
+    border-color: #dddddd ;
+    border-style: solid;
+    border-width: 1px;
     position: relative;
     border-left-style: solid;
     border-left-width: 5px;
+
   }
 
   &__header {
@@ -55,19 +59,22 @@
 
   &--sessions {
     .card-ios, .card-md {
-      border-color: $CC4;
+      border-left-color: $CC4;
     }
   }
 
   &--accounts {
     .card-ios, .card-md {
-      border-color: $CS19;
+      border-left-color: $CS19;
     }
   }
 
   &--requests {
     .card-ios, .card-md {
-      border-color: $CP1;
+      border-left-color: $CP1;
     }
+  }
+  ion-card-content{
+    text-align: left;
   }
 }

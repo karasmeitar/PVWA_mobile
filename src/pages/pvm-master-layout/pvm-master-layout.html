@@ -35,15 +35,21 @@
 <ion-slides class="content-slides" [ngSwitch]="currentContentSlide">
 
   <ion-slide class="content-slides__slide" *ngSwitchCase="'FavoriteAccounts'">
+    <ion-content>
     <page-pvm-account></page-pvm-account>
+      </ion-content>
   </ion-slide>
 
   <ion-slide class="content-slides__slide" *ngSwitchCase="'LiveSessions'">
+    <ion-content>
     <page-pvm-monitoring></page-pvm-monitoring>
+      </ion-content>
   </ion-slide>
 
   <ion-slide class="content-slides__slide" *ngSwitchCase="'IncomingRequests'">
+    <ion-content>
     <page-pvm-incoming-requests></page-pvm-incoming-requests>
+    </ion-content>
   </ion-slide>
 
 </ion-slides>
