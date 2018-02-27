@@ -120,3 +120,9 @@ pvm-details {
 .cyb-icon-decline{
   margin-right: 5px;
 }
+.details-row{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}

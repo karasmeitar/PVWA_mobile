@@ -30,12 +30,12 @@
       <h2>{{"time frame "| uppercase}}</h2>
       <div>
         <span class="cyb-icon-timeline"></span>
-        {{incomingData.AccessFrom - incomingData.AccessTo}}
+      27 Feb 12:00 - 27 Feb 18:00
       </div>
     </ion-item-divider>
     <ion-item-divider class="details_content__item">
       <h2>{{"request reason "| uppercase}}</h2>
-      <div>
+      <div class="details-row">
         {{incomingData.RequestorReason}}
       </div>
     </ion-item-divider>
@@ -61,11 +61,11 @@
   </ion-row>
   <ion-row class="details-reason-row">
     <ion-col class="details-footer-row__col">
-      <button ion-button full class="request-btn-cancel" (click)="cancelClicked()">{{"cancel" | uppercase}}
+      <button ion-button full class="request-btn-cancel" (click)="cancelClicked()"> {{"cancel" | uppercase}}
       </button>
     </ion-col>
     <ion-col class="details-footer-row__col">
-      <button ion-button full class="request-btn-apply" (click)="applyClicked()">{{"apply"}}>
+      <button ion-button full class="request-btn-apply" (click)="applyClicked()"> {{"apply"}}
       </button>
     </ion-col>
   </ion-row>
