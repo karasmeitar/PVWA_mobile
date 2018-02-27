@@ -33,16 +33,20 @@
       }
 
       &--threat {
-        color: $CC2;;
+        color: $CC2;
+        transition: .3s all;
       }
       &--sessions {
         color: $CC4;
+        transition: .3s all;
       }
       &--accounts {
         color: $CS19;
+        transition: .3s all;
       }
       &--requests {
         color: $CP1;
+        transition: .3s all;
       }
     }
   }

@@ -4,9 +4,9 @@ import {NavigationService} from "../../providers/navigation.service";
 import {NavigationData} from "../../model/navigationData";
 
 enum eSlidesMode {
-  requests = 'IncomingRequests',
-  accounts = 'FavoriteAccounts',
-  sessions = 'LiveSessions'
+  IncomingRequests = 'requests',
+  FavoriteAccounts = 'accounts',
+  LiveSessions = 'sessions'
 }
 
 enum eSlidesModeName {
@@ -36,24 +36,24 @@ export class PvmMasterLayoutPage {
   }
 
   ionViewDidLoad() {
-    this.tabs = [
-      new NavigationData('LiveSessions', 0)
-    ];
+    this.tabs = [];
     this.navigation.getAll().subscribe(response => {
-      this.tabs = this.tabs.concat(response);
+      this.tabs = response;
+      this.tabs.push(new NavigationData('LiveSessions', 0));
       this.translateNavigationDataName();
-      //this.updateCurrentIndex();
+      this.topNavbarSlidesChange(this.tabSlide);
     });
   }
 
   translateNavigationDataName(): void {
     this.tabs.map((item) => {
-      item.translatedName = eSlidesModeName[item.name];
+      item.translatedName = eSlidesMode[item.name];
       return item;
     });
   }
 
   goToSlide(slideNumber: number): void {
+    console.log(slideNumber);
     this.tabSlide.slideTo(slideNumber, 500);
     this.loadContentSlide(this.tabSlide.getActiveIndex());
 
@@ -68,8 +68,12 @@ export class PvmMasterLayoutPage {
   }
 
   topNavbarSlidesChange(item: Slides): void {
+    if (!item) {
+      return;
+    }
     this.loadContentSlide(item.getActiveIndex());
     this.updateCurrentIndex();
+    this.type = eSlidesMode[this.tabs[this.currentIndex].name];
   }
 
   updateCurrentIndex(): void {

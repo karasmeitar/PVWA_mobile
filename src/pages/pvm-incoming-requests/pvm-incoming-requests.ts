@@ -23,8 +23,8 @@ export class PvmIncomingRequestsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private incomingRequestsService: IncomingRequestsService) {
     this.incomingRequestsService.getAll().subscribe((requestData: Array<IncomingRequestData>) => {
-      this.requests = requestData.map(request => {
-        return {
+      this.requests = requestData.map<cardData>(request => {
+        return <cardData>{
           header: request.RequestorUserName,
           entityType: "requests",
           infoItems: [{
