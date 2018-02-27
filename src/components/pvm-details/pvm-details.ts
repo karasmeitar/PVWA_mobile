@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import {PendingRequestData} from "../../model/pendingRequestData";
 import {IncomingRequestsService} from "../../providers/incoming-requests.service";
+import {IncomingRequestData} from "../../model/IncomingRequestData";
+import {NavController, NavParams} from "ionic-angular";
+import {PvmMasterLayoutPage} from "../../pages/pvm-master-layout/pvm-master-layout";
 
 /**
  * Generated class for the PvmDetailsComponent component.
@@ -19,23 +22,12 @@ export class PvmDetailsComponent {
   actionTitle:string;
   isReasonDisplay: boolean;
   reason:string;
-  pendingRequest:PendingRequestData;
+  incomingData: IncomingRequestData;
 
-  constructor(private request: IncomingRequestsService) {
-    console.log('Hello PvmDetailsComponent Component');
+  constructor(private nav: NavController,public navParams: NavParams,private request: IncomingRequestsService) {
+    this.incomingData = this.navParams.get('item');
     this.isReasonDisplay = false;
-    this.text = 'Hello World';
     this.title = 'Incoming Request';
-    this.reason = '';
-    this.pendingRequest = new PendingRequestData(
-      'Hexoo 2 - Machine 1.2',
-      'Anna Hamilton',
-      '12 Feb 12:00 - 12 Feb 18:00',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet');
-    this.date = '28 Feb 10:33'
-    debugger;
-
-    //this.request.confirmRequest("3", "asd").subscribe(response => console.log('Approved', response));
   }
 
   public declineClicked(): void {
@@ -54,14 +46,15 @@ export class PvmDetailsComponent {
   }
 
   public applyClicked(): void {
-    debugger;
-    if (this.actionTitle === "approve") {
-      //this.request.confirmRequest("3", this.reason).subscribe(response => console.log('Approved', response));
+    if (this.actionTitle === "confirm") {
+      this.request.confirmRequest(this.incomingData.RequestID, this.reason).subscribe(response => console.log('Approved', response));
     }
     else {
-      //this.request.rejectRequest("3", this.reason).subscribe(response => console.log('Approved', response));
+      this.request.rejectRequest(this.incomingData.RequestID, this.reason).subscribe(response => console.log('Reject', response));
     }
     this.actionTitle = "";
     this.isReasonDisplay = false;
+  debugger;
+    this.nav.pop();
   }
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IncomingRequestsService} from "../../providers/incoming-requests.service";
+import {IncomingRequestData} from "../../model/IncomingRequestData";
 
 /**
  * Generated class for the PvmIncomingRequestsDetailsPage page.
@@ -15,7 +17,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PvmIncomingRequestsDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  title: string;
+  isReasonDisplay: boolean;
+  incomingData: IncomingRequestData;
+
+  constructor(public navParams: NavParams,private request: IncomingRequestsService) {
+    this.incomingData = this.navParams.get('item');
+    this.isReasonDisplay = false;
+    this.title = 'Incoming Request';
   }
 
   ionViewDidLoad() {

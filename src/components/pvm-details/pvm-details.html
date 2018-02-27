@@ -16,26 +16,27 @@
     <ion-item-divider class="details_content__item">
       <h2>{{"requested By "| uppercase}}</h2>
       <div>
-        {{pendingRequest.requestedBy}}
+        {{incomingData.RequestorUserName}}
       </div>
     </ion-item-divider>
     <ion-item-divider class="details_content__item">
       <h2>{{"account "| uppercase}}</h2>
       <div>
-        {{pendingRequest.accountName}}
+        {{incomingData.AccountDetails.Properties['Address']}}
       </div>
     </ion-item-divider>
 
-    <ion-item-divider class="details_content__item">
+    <ion-item-divider class="details_content__item" *ngIf="incomingData.AccessFrom && incomingData.AccessTo">
       <h2>{{"time frame "| uppercase}}</h2>
       <div>
-        {{pendingRequest.timeFrame}}
+        <span class="cyb-icon-timeline"></span>
+        {{incomingData.AccessFrom - incomingData.AccessTo}}
       </div>
     </ion-item-divider>
     <ion-item-divider class="details_content__item">
       <h2>{{"request reason "| uppercase}}</h2>
       <div>
-        {{pendingRequest.reason}}
+        {{incomingData.RequestorReason}}
       </div>
     </ion-item-divider>
   </ion-list>
@@ -43,10 +44,10 @@
   <div class="details-footer"  *ngIf="!isReasonDisplay">
     <ion-row class="details-footer-row">
       <ion-col class="details-footer-row__col">
-        <button ion-button full class="request-btn-decline" (click)="declineClicked()">{{"decline" | uppercase}}</button>
+        <button  icon-start  ion-button full class="request-btn-decline" (click)="declineClicked()">  <span class="cyb-icon-decline"></span>{{"reject" | uppercase}}</button>
       </ion-col>
       <ion-col class="details-footer-row__col">
-        <button ion-button full class="request-btn-approve" (click)="approveClicked()">{{"approve"}}</button>
+        <button  icon-start  ion-button full class="request-btn-approve" (click)="approveClicked()"> <span class="cyb-icon-approve"></span> {{"confirm"}}</button>
       </ion-col>
     </ion-row>
   </div>
@@ -60,10 +61,12 @@
   </ion-row>
   <ion-row class="details-reason-row">
     <ion-col class="details-footer-row__col">
-      <button ion-button full class="request-btn-cancel" (click)="cancelClicked()">{{"cancel" | uppercase}}</button>
+      <button ion-button full class="request-btn-cancel" (click)="cancelClicked()">{{"cancel" | uppercase}}
+      </button>
     </ion-col>
     <ion-col class="details-footer-row__col">
-      <button ion-button full class="request-btn-apply" (click)="applyClicked()">{{"apply"}}</button>
+      <button ion-button full class="request-btn-apply" (click)="applyClicked()">{{"apply"}}>
+      </button>
     </ion-col>
   </ion-row>
 </div>

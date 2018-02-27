@@ -5,4 +5,5 @@ export class cardData {
   icon?: string;
   iconText?: string;
   iconColor?: 'blue' | 'red' | 'orange';
+  entityId?: string;
 }

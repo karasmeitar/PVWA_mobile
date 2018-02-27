@@ -30,6 +30,7 @@ export class PvmMasterLayoutPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private navigation: NavigationService) {
+
     this.type = 'accounts';
     this.currentContentSlide = 'FavoriteAccounts';
     this.currentIndex = 0;
