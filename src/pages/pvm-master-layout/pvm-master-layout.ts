@@ -36,6 +36,7 @@ export class PvmMasterLayoutPage {
   }
 
   ionViewDidLoad() {
+    this.navCtrl.remove(0);
     this.tabs = [];
     this.navigation.getAll().subscribe(response => {
       this.tabs = response;
@@ -47,7 +48,7 @@ export class PvmMasterLayoutPage {
 
   translateNavigationDataName(): void {
     this.tabs.map((item) => {
-      item.translatedName = eSlidesMode[item.name];
+      item.translatedName = eSlidesModeName[item.name];
       return item;
     });
   }
@@ -77,7 +78,11 @@ export class PvmMasterLayoutPage {
   }
 
   updateCurrentIndex(): void {
-    this.currentIndex = this.tabSlide.getActiveIndex();
+    const current = this.tabSlide.getActiveIndex();
+    if (current >= this.tabs.length) {
+      return
+    }
+    this.currentIndex = current;
   }
 
 }
